@@ -89,13 +89,27 @@
 
       <!-- describe for product  -->
       <article class="article-section-describe">
-          <p>Sneaker Company</p>
-          <h1>Fall Limited Edition Sneakers</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, expedita ipsam soluta perspiciatis dolorem sed! Ipsum doloribus, recusandae distinctio veniam, amet nisi odit perferendis minus.</p>
+          <p class="brand-product">Sneaker Company</p>
+          <h1 class="title-product">Fall Limited Edition Sneakers</h1>
+          <p class="describe-product">These low-profile sneakers are your perfect casual wear companion. Featuring a durrable rubber outer sole, they'll withstand everything the weather can offer.</p>
 
           <!-- price -->
-          <div>
-            
+          <div class="price">
+            <p>$125.00</p>
+            <span class="discount">50%</span>
+          </div>
+  
+          <p class="real-price">$250.00</p>
+
+          <div class="action-button"> <!-- button action -->
+
+            <div class="add-minus-product">
+              <button class="plus-btn">+</button>
+              <h1 class="quantity-product">0</h1>
+              <button class="minus-btn">-</button>
+            </div>
+
+            <button class="addToCart"> <ion-icon name="cart-outline"></ion-icon> add to cart</button>
           </div>
       </article>
   </section>
@@ -103,4 +117,17 @@
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<script>
+  // let startNum = 0 
+  // const num = document.querySelector(".quantity-product");
+  // const addNum = document.querySelector(".plus-btn");
+  // const minusNum = document.querySelector(".minus-btn");
+
+  // function addNumberQuantity(){
+  //   startNum += 1 
+  //   num.innerHTML = `<h1 class = "quantity-product">${startNum} <h1>`
+  // }
+</script>
+
 </html>
