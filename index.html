@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <!-- css -->
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="style/styles.css">
-  <link rel="stylesheet" href="style/responsive.css">
-  <link rel="stylesheet" href="style/text-global.css">
-  <link rel="stylesheet" href="style/section.css">
-  
-  <title>Frontend Mentor | E-commerce product page</title>
+    <!-- css -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style/styles.css" />
+    <link rel="stylesheet" href="style/responsive.css" />
+    <link rel="stylesheet" href="style/text-global.css" />
+    <link rel="stylesheet" href="style/section.css" />
+    <link rel="stylesheet" href="style/lightbox.css" />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-<!-- 
+    <title>Frontend Mentor | E-commerce product page</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
   Collections
   Men
   Women
@@ -40,48 +52,130 @@
 
   0
   Add to cart -->
-  <!-- navigation bar header -->
-  <nav class="navbar-header">
-    <!-- left section navbar -->
-    <div class="left-nav">
-      <div class="brand">SNEAKER</div>
-      <div>
-        <ul>
-          <li>Collections</li>
-          <li>Men</li>
-          <li>Women</li>
-          <li>About</li>
-          <li>Contact</li>
-        </ul>
+
+    
+
+    <!-- navigation bar header -->
+    <nav class="navbar-header">
+      <!-- left section navbar -->
+      <div class="left-nav">
+        <div class="brand">SNEAKER</div>
+        <div>
+          <ul>
+            <li>Collections</li>
+            <li>Men</li>
+            <li>Women</li>
+            <li>About</li>
+            <li>Contact</li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <!-- right section navbar  -->
-    <div class="right-nav">
-      <ion-icon name="cart-outline" class="cart-logo"></ion-icon>
-      <img src="/images/image-avatar.png" alt="" class="image-avatar">
-    </div>
-  </nav>
-  
-  <!-- <div class="attribution">
+      <!-- right section navbar  -->
+      <div class="right-nav">
+        <ion-icon name="cart-outline" class="cart-logo"></ion-icon>
+        <img src="/images/image-avatar.png" alt="" class="image-avatar" />
+      </div>
+    </nav>
+
+    <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div> -->
 
-  <section class="section">
+    <section class="section">
 
+      <section id="section-lightbox">
+        <article class="article-section-image-lightbox">
+          <!-- bagian atas -->
+          <div class="lightbox-content">
+            <div class="slide">
+              <p class="close" onclick="closeModal()">X</p>
+              <img
+                src="images/image-product-1.jpg"
+                alt=""
+                class="img-parent-lightbox"
+              />
+              <a class="prev prev-symbol" onclick="plusSlides(-1)">&#10094;</a>
+              <a class="next next-symbol" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+  
+            <!-- bagian bawah -->
+            <div class="img-child-div">
+              <div class="mySlide">
+                <img
+                  src="images/image-product-1-thumbnail.jpg"
+                  alt=""
+                  class="img-child-lightbox demo"
+                  onclick="currentSlide(1)"
+                />
+              </div>
+              <div class="mySlide">
+                <img
+                  src="images/image-product-2-thumbnail.jpg"
+                  alt=""
+                  class="img-child-lightbox demo"
+                  onclick="currentSlide(2)"
+                />
+              </div>
+              <div class="mySlide">
+                <img
+                  src="images/image-product-3-thumbnail.jpg"
+                  alt=""
+                  class="img-child-lightbox demo"
+                  onclick="currentSlide(3)"
+                />
+              </div>
+              <div class="mySlide">
+                <img
+                  src="images/image-product-4-thumbnail.jpg"
+                  alt=""
+                  class="img-child-lightbox demo"
+                  onclick="currentSlide(4)"
+                />
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+      
       <!-- gambar product -->
       <article class="article-section-image">
         <!-- bagian atas -->
         <div>
-            <img src="images/image-product-1.jpg" alt="" class="img-parent">
+          <img
+            src="images/image-product-1.jpg"
+            alt=""
+            class="img-parent"
+            onclick="openModal(); currentSlide(1)"
+          />
         </div>
 
         <!-- bagian bawah -->
-        <div class="img-child-div">
-            <img src="images/image-product-1-thumbnail.jpg" alt="" class="img-child demo">
-            <img src="images/image-product-2-thumbnail.jpg" alt="" class="img-child demo">
-            <img src="images/image-product-3-thumbnail.jpg" alt="" class="img-child demo">
-            <img src="images/image-product-4-thumbnail.jpg" alt="" class="img-child demo">
+        <div class="img-child-div1">
+          <img
+            src="images/image-product-1-thumbnail.jpg"
+            alt=""
+            class="img-child demo"
+            onclick="openModal(), currentSlide(1)"
+          />
+          <img
+            src="images/image-product-2-thumbnail.jpg"
+            alt=""
+            class="img-child demo"
+            onclick="openModal(), currentSlide(2)"
+          />
+          <img
+            src="images/image-product-3-thumbnail.jpg"
+            alt=""
+            class="img-child demo"
+            onclick="openModal(), currentSlide(3)"
+          />
+          <img
+            src="images/image-product-4-thumbnail.jpg"
+            alt=""
+            class="img-child demo"
+            onclick="openModal(), currentSlide(4)"
+          />
         </div>
       </article>
 
@@ -89,45 +183,51 @@
 
       <!-- describe for product  -->
       <article class="article-section-describe">
-          <p class="brand-product">Sneaker Company</p>
-          <h1 class="title-product">Fall Limited Edition Sneakers</h1>
-          <p class="describe-product">These low-profile sneakers are your perfect casual wear companion. Featuring a durrable rubber outer sole, they'll withstand everything the weather can offer.</p>
+        <p class="brand-product">Sneaker Company</p>
+        <h1 class="title-product">Fall Limited Edition Sneakers</h1>
+        <p class="describe-product">
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durrable rubber outer sole, they'll withstand everything
+          the weather can offer.
+        </p>
 
-          <!-- price -->
-          <div class="price">
-            <p>$125.00</p>
-            <span class="discount">50%</span>
+        <!-- price -->
+        <div class="price">
+          <p>$125.00</p>
+          <span class="discount">50%</span>
+        </div>
+
+        <p class="real-price">$250.00</p>
+
+        <div class="action-button">
+          <!-- button action -->
+
+          <div class="add-minus-product">
+            <button class="plus-btn">+</button>
+            <h1 class="quantity-product">0</h1>
+            <button class="minus-btn">-</button>
           </div>
-  
-          <p class="real-price">$250.00</p>
 
-          <div class="action-button"> <!-- button action -->
-
-            <div class="add-minus-product">
-              <button class="plus-btn">+</button>
-              <h1 class="quantity-product">0</h1>
-              <button class="minus-btn">-</button>
-            </div>
-
-            <button class="addToCart"> <ion-icon name="cart-outline"></ion-icon> add to cart</button>
-          </div>
+          <button class="addToCart">
+            <ion-icon name="cart-outline"></ion-icon> add to cart
+          </button>
+        </div>
       </article>
-  </section>
-</body>
+    </section>
+  </body>
 
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
 
-<script>
-  // let startNum = 0 
-  // const num = document.querySelector(".quantity-product");
-  // const addNum = document.querySelector(".plus-btn");
-  // const minusNum = document.querySelector(".minus-btn");
+  <script>
 
-  // function addNumberQuantity(){
-  //   startNum += 1 
-  //   num.innerHTML = `<h1 class = "quantity-product">${startNum} <h1>`
-  // }
-</script>
+  </script>
 
+  <script src="js/lightbox.js"></script>
 </html>
