@@ -13,10 +13,14 @@
       href="./images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="style/styles.css" />
-    <link rel="stylesheet" href="style/responsive.css" />
     <link rel="stylesheet" href="style/text-global.css" />
     <link rel="stylesheet" href="style/section.css" />
     <link rel="stylesheet" href="style/lightbox.css" />
+    <link rel="stylesheet" href="style/cart.css" />
+    <link rel="stylesheet" href="style/sidebar.css" />
+    <link rel="stylesheet" href="style/responsive.css"/>
+    
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
 
     <title>Frontend Mentor | E-commerce product page</title>
 
@@ -53,12 +57,27 @@
   0
   Add to cart -->
 
-    
-
     <!-- navigation bar header -->
+    <section class="sidebar-section">
+      <div class="sidebar-close">
+        <p class="sidebar-close-button">X</p>
+      </div>
+      <div class="sidebar-menu">
+        <ul class="sidebar-menu-list">
+            <li>Collections</li>
+            <li>Men</li>
+            <li>Women</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+      </div>
+    </section>
+
+
     <nav class="navbar-header">
       <!-- left section navbar -->
       <div class="left-nav">
+        <ion-icon name="menu-outline" class="logo-menu"></ion-icon>
         <div class="brand">SNEAKER</div>
         <div>
           <ul>
@@ -72,8 +91,37 @@
       </div>
       <!-- right section navbar  -->
       <div class="right-nav">
-        <ion-icon name="cart-outline" class="cart-logo"></ion-icon>
-        <img src="/images/image-avatar.png" alt="" class="image-avatar" />
+        <ion-icon
+          name="cart-outline"
+          class="cart-logo"
+          onclick="openCart()"
+        ></ion-icon>
+        <div class="cart">
+          <div class="cart-isi">
+            <div class="cart-head">
+              <div
+                style="display: flex; align-items: center; margin-left: 0.5rem"
+              >
+                <ion-icon
+                  name="cart-outline"
+                  class="cart-logo"
+                  style="width: 25px"
+                ></ion-icon>
+                <p class="title-cart">Cart</p>
+              </div>
+              <p class="close-cart" onclick="closeCart()">X</p>
+            </div>
+            <div class="cart-product">
+              <!-- content isi dcart product -->
+            </div>
+            <div class="button-cart">
+              <p class="total-price"></p>
+              <button class="checkout-cart">checkOut</button>
+            </div>
+          </div>
+        </div>
+
+        <img src="/images/image-avatar.png" alt="" class="image-avatar" style="width: 38px;" />
       </div>
     </nav>
 
@@ -83,6 +131,7 @@
   </div> -->
 
     <section class="section">
+      <section id="section-lightbox-opacity-bg"></section>
 
       <section id="section-lightbox">
         <article class="article-section-image-lightbox">
@@ -98,7 +147,7 @@
               <a class="prev prev-symbol" onclick="plusSlides(-1)">&#10094;</a>
               <a class="next next-symbol" onclick="plusSlides(1)">&#10095;</a>
             </div>
-  
+
             <!-- bagian bawah -->
             <div class="img-child-div">
               <div class="mySlide">
@@ -137,17 +186,150 @@
           </div>
         </article>
       </section>
-      
+
       <!-- gambar product -->
       <article class="article-section-image">
         <!-- bagian atas -->
-        <div>
+        <div class="img-parent-div">
           <img
             src="images/image-product-1.jpg"
             alt=""
             class="img-parent"
             onclick="openModal(); currentSlide(1)"
           />
+
+          <div
+            id="indicators-carousel"
+            class="absolute w-full carousel-section"
+            data-carousel="static"
+          >
+            <!-- Carousel wrapper -->
+            <div class="relative h-56 overflow-hidden md:h-96">
+              <!-- Item 1 -->
+              <div
+                class="hidden duration-700 ease-in-out"
+                data-carousel-item="active"
+              >
+                <img
+                  src="/images/image-product-4.jpg"
+                  class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                  alt="..."
+                />
+              </div>
+              <!-- Item 2 -->
+              <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img
+                  src="/images/image-product-3.jpg"
+                  class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                  alt="..."
+                />
+              </div>
+              <!-- Item 3 -->
+              <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img
+                  src="images/image-product-2.jpg"
+                  class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                  alt="..."
+                />
+              </div>
+              <!-- Item 4 -->
+              <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img
+                  src="images/image-product-1.jpg"
+                  class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                  alt="..."
+                />
+              </div>
+              <!-- Item 5 -->
+            </div>
+            <!-- Slider indicators -->
+            <div
+              class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2"
+            >
+              <button
+                type="button"
+                class="w-3 h-3 rounded-full"
+                aria-current="true"
+                aria-label="Slide 1"
+                data-carousel-slide-to="0"
+              ></button>
+              <button
+                type="button"
+                class="w-3 h-3 rounded-full"
+                aria-current="false"
+                aria-label="Slide 2"
+                data-carousel-slide-to="1"
+              ></button>
+              <button
+                type="button"
+                class="w-3 h-3 rounded-full"
+                aria-current="false"
+                aria-label="Slide 3"
+                data-carousel-slide-to="2"
+              ></button>
+              <button
+                type="button"
+                class="w-3 h-3 rounded-full"
+                aria-current="false"
+                aria-label="Slide 4"
+                data-carousel-slide-to="3"
+              ></button>
+             
+            </div>
+            <!-- Slider controls -->
+            <button
+              type="button"
+              class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+              data-carousel-prev
+            >
+              <span
+                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+              >
+                <svg
+                  class="w-4 h-4 dark:text-gray-800 rtl:rotate-180"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 6 10"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 1 1 5l4 4"
+                  />
+                </svg>
+                <span class="sr-only">Previous</span>
+              </span>
+            </button>
+            <button
+              type="button"
+              class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+              data-carousel-next
+            >
+              <span
+                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+              >
+                <svg
+                  class="w-4 h-4  dark:text-gray-800 rtl:rotate-180"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 6 10"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 9 4-4-4-4"
+                  />
+                </svg>
+                <span class="sr-only">Next</span>
+              </span>
+            </button>
+          </div>
         </div>
 
         <!-- bagian bawah -->
@@ -214,8 +396,11 @@
         </div>
       </article>
     </section>
+
+   
   </body>
 
+  <!-- file javascript ionicons-->
   <script
     type="module"
     src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -225,9 +410,12 @@
     src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
   ></script>
 
-  <script>
-
-  </script>
-
+  <!-- javascript lighbox image -->
   <script src="js/lightbox.js"></script>
+  <!-- javascript cart -->
+  <script src="js/cart-function.js"></script>
+  <!-- javascript sidebar -->
+  <script src="js/sidebar.js"></script>
+  <!-- cdn carousel link -->
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 </html>

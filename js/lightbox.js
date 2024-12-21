@@ -1,23 +1,25 @@
-let startNum = 0;
+// let startNum = 0;
 
-// add quantity di product
-const num = document.querySelector(".quantity-product");
-const addNum = document.querySelector(".plus-btn");
-const minusNum = document.querySelector(".minus-btn");
+// // add quantity di product
+// const num = document.querySelector(".quantity-product");
+// const addNum = document.querySelector(".plus-btn");
+// const minusNum = document.querySelector(".minus-btn");
 
 const sectionLightBox = document.querySelector("#section-lightbox");
 const lightbox_content = document.querySelector(".lightbox-content");
-
-addNum.addEventListener("click", function () {
-  startNum += 1;
-  num.innerHTML = `<h1 class = "quantity-product">${startNum} <h1>`;
-});
+const sectionLightBox_Opacity_Bg = document.getElementById("section-lightbox-opacity-bg")
 
 
-minusNum.addEventListener("click", function () {
-  startNum -= 1;
-  num.innerHTML = `<h1 class = "quantity-product">${startNum} <h1>`;
-});
+// addNum.addEventListener("click", function () {
+//   startNum += 1;
+//   num.innerHTML = `<h1 class = "quantity-product">${startNum} <h1>`;
+// });
+
+
+// minusNum.addEventListener("click", function () {
+//   startNum -= 1;
+//   num.innerHTML = `<h1 class = "quantity-product">${startNum} <h1>`;
+// });
 
 // let slideIndex = 1;
 // showSlides(slideIndex);
@@ -41,11 +43,14 @@ console.log(parentImage)
 function openModal() {
   sectionLightBox.style.display = "block";
   lightbox_content.style.display = "block";
+  sectionLightBox_Opacity_Bg.style.display = "block";
+  
   showSlide(currentIndex);
 }
 
 // Fungsi untuk menutup modal lightbox
 function closeModal() {
+  sectionLightBox_Opacity_Bg.style.display = "none";
   sectionLightBox.style.display = "none";
 }
 
